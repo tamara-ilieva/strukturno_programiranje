@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // nepoznat broj na heksadecimalni cifri dodeka ne se vnese tochka
+    // zbir na dekaden
+    // dali se deli so 16
+    // dali zavrshuva na 16 -> poln pogod inaku zbirot
+
+
+    char s;
+    int zbir = 0, int_version, vrednost;
+    while(scanf("%c", &s)){
+        //scanf("%c", &s);
+        if (s == '.'){
+            break;
+        }
+        int_version = (int)(s);
+        //printf("%d", int_version);
+        if (int_version != 10){
+            if((int_version >= 49) && (int_version <= 57)){ // 1-9
+                vrednost = int_version - 48;
+                //printf("=== %d%c\n", int_version, &s);
+                zbir+=vrednost;
+            }
+            else{ // A-F (A-65, F-70) -> A-10, F-15
+                vrednost = int_version - 55;
+                //printf("+++ %d%c\n", int_version, &s);
+                zbir+=vrednost;
+            }
+        }
+    }
+
+    printf("%d\n", zbir);
+    if(zbir%16 ==0){
+        printf("Pogodok\n");
+    }
+    if(zbir%100==16){
+        printf("Poln pogodok!");
+    }
+    else{
+        printf("%d", zbir);
+    }
+
+    return 0;
+}
