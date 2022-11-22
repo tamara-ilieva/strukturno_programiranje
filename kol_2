@@ -1,0 +1,28 @@
+int n = 22, obraten_broj=0, digit, num_of_digits=0, broj, rang;
+    scanf("%d", &rang);
+
+    if (rang<10){
+        printf("Brojot ne e validen");
+    }
+    else{
+        while(rang>9){
+            broj = rang;
+            num_of_digits = 0;
+            while(broj>0){
+                digit = broj % 10; // naogjash posledna cifra
+                // obraten_broj = obraten_broj * 10; -> pravenje na mesto za nova cifra, dodava nula na kraj od brojot
+                // obraten_broj = obraten_broj * 10 + digit -> dodavanje na digit na kraj od obraten broj
+                obraten_broj = obraten_broj * 10 + digit; // 9, 98, 98*10+5 = 985
+                broj = broj/10;
+                num_of_digits++;
+                //67*10+6= 670 + 6 = 676
+            }
+3
+
+            if(obraten_broj % num_of_digits == 0){
+                printf("brojot %d e interesen", rang);
+                break;
+            }
+            rang--;
+        }
+    }
