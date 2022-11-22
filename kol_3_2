@@ -1,0 +1,17 @@
+n = n-1;
+    while(n>0){
+        deliteli = n-1;
+        zbir_deliteli=0;
+        while(deliteli>0){
+            if (n % deliteli ==0){
+                zbir_deliteli += deliteli;
+            }
+            deliteli--;
+        }
+        if (zbir_deliteli > max_deliteli){
+            max_deliteli = zbir_deliteli;
+            max_broj = n;
+        }
+        n--;
+    }
+    printf("%d", max_deliteli);
