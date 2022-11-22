@@ -1,0 +1,16 @@
+char ch;
+    int broj=0, suma=0;
+    while ( (ch = getchar()) != EOF ) {
+        if ( ch >= '0' && ch <= '9' ) {
+            broj=broj*10 + (ch-'0');
+            // '0' -> 48
+        }
+        if (broj>10){
+            suma += broj;
+            broj=0;
+        }
+        if(ch == '!')
+            break;
+
+    }
+    printf("%d", suma);
