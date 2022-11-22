@@ -1,0 +1,20 @@
+int n, i, max_deliteli=0, deliteli, max_broj, j, zbir_deliteli, broj;
+    scanf("%d", &n);
+    
+    for(i=1;i<n;i++){
+        zbir_deliteli = 0;
+        broj = i;
+        //for(j=broj-1; j>=1; j--)
+        for(j=1;j<broj;j++){
+            if(broj % j==0){
+                zbir_deliteli += j;
+            }
+        }
+        printf("%d \n", zbir_deliteli);
+        if(zbir_deliteli > max_deliteli){
+            max_deliteli = zbir_deliteli;
+            max_broj = broj;
+        }
+    }
+    printf("Najgolem zbir na deliteli ima brojot %d i zbirot iznesuva %d", max_broj, max_deliteli);
+    
