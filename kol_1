@@ -1,0 +1,26 @@
+int m, n, broj, blag, digit, i, max_blag=0, min_blag, prv=1;
+    scanf("%d", &m);
+    scanf("%d", &n);
+    for(i=m;i<n;i++){
+        broj = i;
+        blag = 1;
+        while(broj>0){
+            digit = broj % 10; // zemanje na poslednata cifra
+            broj = broj / 10; // otstranuvanje na poslednata cifra
+            if (digit % 2 != 0){ // ne e parna
+                blag  = 0;
+            }
+        }
+        if(prv==1 && blag==1){
+            min_blag = i;
+            prv=0;
+        }
+        if (blag == 1){
+            printf("%d \n", i);
+            max_blag=i;
+            //break;
+        }
+    }
+    printf("Najmal i najgolem: \n");
+    printf("%d \n", min_blag);
+    printf("%d \n", max_blag); 
