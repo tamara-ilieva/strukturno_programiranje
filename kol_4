@@ -1,0 +1,25 @@
+char znak;
+    int broj=0, suma=0, formiran_broj = 0, cifra, formiranje_vo_proces=0;
+    scanf("%c", &znak);
+    while(znak != '!'){
+
+        if(isdigit(znak)){
+            cifra = (int)(znak) - 48;
+            broj = broj*10+cifra;
+            printf("%d", broj);
+            formiranje_vo_proces = 1;
+
+        }else{
+            formiranje_vo_proces=0;
+            formiran_broj = 1;
+        }
+
+        if (formiran_broj == 1){
+            suma += broj;
+            printf("==suma: %d ", suma);
+            broj = 0;
+        }
+        scanf("%c", &znak);
+
+    }
+    printf("%d", suma);
