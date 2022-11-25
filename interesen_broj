@@ -1,0 +1,20 @@
+ int n,obraten=0,temp=0,N;
+    int br_cifri=0;
+    scanf("%d",&n);
+
+    while(n)
+    {
+        N = n % 10;
+        br_cifri ++;
+        n /=10;
+        //12 3
+        obraten *= 10 + N;
+
+    }
+    if (obraten % br_cifri==0 )
+    {
+        printf("Interesen");
+
+    }else {
+    printf("Ne e interesen");
+    }
