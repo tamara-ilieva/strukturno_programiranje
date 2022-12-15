@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, i, j, x, y, m, isti=1, brojac=0, zbir1=0, zbir2=0, temp;
+    scanf("%d", &n);
+    scanf("%d", &m);
+
+    int mat1[n][m];
+    int mat2[n][m];
+
+
+    for(i=0;i<n;i++){
+        for(j=0;j<m;j++){
+            scanf("%d", &mat1[i][j]);
+        }
+    }
+
+    for(i=0;i<n;i++){
+        for(j=0;j<m;j++){
+            scanf("%d", &mat2[i][j]);
+        }
+    }
+
+    for(j=0;j<m;j++){ // kolonite od prvata matrica
+        for(y=0;y<m;y++){ // kolonite od vtorata matrica
+            for(i=0;i<n;i++){ // redici
+                if(mat1[i][y] != mat2[i][j]){
+                    isti = 0;
+                    break;
+                }
+            }
+            if (isti==1){
+                brojac++;
+            }
+            isti = 1;
+
+        }
+    }
+
+    printf("%d", brojac);
+
+
+}
+
