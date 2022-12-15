@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, i, j, zbir1=0, zbir2=0, temp;
+    scanf("%d", &n);
+    int mat[n][n];
+
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    for(i=0;i<n/2;i++){
+        zbir1 = 0;
+        zbir2 = 0;
+        for(j=0;j<n;j++){
+            zbir1 += mat[i][j];
+            zbir2 += mat[n-1-i][j];
+        }
+
+        if(zbir1>zbir2){
+            for(j=0;j<n;j++){
+             temp = mat[i][j];
+             mat[i][j] = mat[n-1-i][j];
+             mat[n-1-i][j] = temp;
+            }
+        }
+
+
+
+    }
+
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+
+
+}
+
