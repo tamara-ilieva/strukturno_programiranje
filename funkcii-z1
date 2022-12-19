@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int reverseNumber(int n){
+    int reverseNum=0;
+
+    while(n>0){
+        reverseNum = (reverseNum*10) + (n%10);
+        n/=10;
+    }
+
+    return reverseNum;
+}
+
+int isPalindrome(int n){
+    int reverseNum;
+    reverseNum = reverseNumber(n);
+    if (reverseNum == n){
+        return 1;
+    }
+    return 0;
+}
+
+int containsDigits(int n){
+    // 0, 1, 2, 3, 4
+    int digit;
+    while(n>0){
+        digit = n%10;
+        if (digit != 0 && digit != 1 && digit != 2 && digit != 3 && digit != 4){
+            return 0;
+        }
+        n=n/10;
+    }
+    return 1;
+}
+
+
+int main()
+{
+    int a, b, i, prvUslov, vtorUslov;
+    scanf("%d", &a);
+    scanf("%d", &b);
+
+    for(i=a; i<=b; i++){
+        prvUslov = isPalindrome(i);
+        vtorUslov = containsDigits(i);
+        if ((prvUslov == 1) && (vtorUslov == 1)){
+            printf("%d\n", i);
+        }
+    }
+
+}
+
