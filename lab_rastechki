@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+// se chita broj n
+// se chitaat n broevi posle toa
+// da se ispechatat site rastechki broevi
+// i da se najde sumata na ovie broevi (rekurzija)
+
+int daliRastechki(int n){
+    // 1234
+    int digit, prevDigit;
+    prevDigit = n%10; // ja zemame prvata posledna cifra
+    n/=10; // ja trgame od brojot
+    while(n>0){
+        digit = n%10; // ja zemame narednata posledna cifra
+        if (digit > prevDigit){
+            return 0;
+        }
+        prevDigit = digit;
+        n /= 10;
+    }
+    return 1;
+}
+
+int sumaCifri(int n){
+    int suma=0, digit;
+    while(n>0){
+        digit = n%10;
+        suma+=digit;
+        n/=10;
+    }
+
+    return suma;
+}
+
+int sumaCifriRekurzija(int n){
+    // 1234
+    // 4 + sumaCifriRekurzija(123)
+    // 4 + 3 + sumaCifriRekurzija(12)
+    // 4 + 3 + 2 + sumaCifriRekurzija(1)
+    int digit;
+    if (n == 0){
+        return 0;
+    } else{
+        digit = n%10;
+        return digit + sumaCifriRekurzija(n/10);
+    }
+
+
+}
+
+
+
+int main(){
+    int n, i, num;
+    scanf("%d", &n);
+    for(i=0;i<n;i++){
+       scanf("%d", &num);
+       if (daliRastechki(num)){
+        printf("%d suma(%d)\n", num, sumaCifriRekurzija(num));
+       }
+    }
+}
+
