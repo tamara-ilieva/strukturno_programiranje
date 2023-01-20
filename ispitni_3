@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <math.h>
+
+float rekurzija_fun(int niza[], int i, int n){
+    if (i==n-1){
+        return niza[i]; // niza[n-1]
+    }
+    return (niza[i] + (1/(rekurzija_fun(niza, i+1, n))));
+}
+
+
+int main() {
+    int n, i;
+    float rezultat;
+    scanf("%d", &n);
+    int niza[n];
+    for(i=0;i<n;i++){
+        scanf("%d", &niza[i]);
+    }
+
+    rezultat = rekurzija_fun(niza, 0, n);
+    printf("%f", rezultat);
+
+    return 0;
+}
