@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <math.h>
+int main(){
+    int m, n;
+    scanf("%d", &m);
+    n=m*2;
+    int mat[m][n];
+    int i, j;
+    for(i=0;i<m;i++){
+        for(j=0;j<n;j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    int a,b;
+    a=n;
+    b=m;
+    int matb[a][b];
+    for(i=0;i<n/2;i++){
+        for(j=0;j<m;j++){
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<n/2;i++){
+        for(j=m;j<n;j++){
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+}
