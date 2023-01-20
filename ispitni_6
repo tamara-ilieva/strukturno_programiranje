@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <math.h>
+
+int najdi_max_cifra(int broj){
+    int max_cifra, posledna;
+    max_cifra = 0; // ili poslednata
+    while(broj>0){
+        posledna = broj%10;
+        broj = broj/10;
+        if(posledna > max_cifra){
+            max_cifra = posledna;
+        }
+    }
+    return max_cifra;
+}
+
+int najdi_max_cifra_rekurzija(int broj, int max_cifra){
+    int cifra;
+    if(broj==0){
+        return max_cifra;
+    }
+    else{
+        cifra = broj%10;
+        if(cifra>max_cifra){
+            max_cifra = cifra;
+        }
+        return najdi_max_cifra_rekurzija(broj/10, max_cifra);
+    }
+}
+
+
+int main() {
+    int n, cifra;
+    // 36781
+    // 36781 % 10 -> posledna cifra
+    // 36781 / 10 -> site osven posledna (3678)
+    while(scanf("%d", &n)){
+        cifra = najdi_max_cifra_rekurzija(n, 0);
+        printf("%d\n", cifra);
+    }
+
+    return 0;
+}
