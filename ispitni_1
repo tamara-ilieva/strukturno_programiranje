@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+void writeToFile() {
+  FILE *f = fopen("text.txt", "w");
+  char c;
+  while((c = getchar()) != '#') {
+    fputc(c, f);
+  }
+  fclose(f);
+}
+
+int main() {
+    
+  writeToFile();
+  // Vasiot kod zapocnuva od tuka
+  FILE *f = fopen("text.txt", "r");
+  int vkupno=0;
+  char pc, c;
+  int flag=1;
+  while((c=fgetc(f)) != EOF){
+      if(flag){
+          flag=0;
+          pc=c; // vred na prviot karak
+          continue;
+      }
+      c = tolower(c);
+      pc = tolower(pc);
+      if((c=='a' || c=='o' || c=='i' || c=='e' || c=='u') && (pc=='a' || pc=='o' || pc=='i' || pc=='e' || pc=='u')){
+        vkupno++; // dve posl. samoglaski
+        printf("%c%c\n", pc, c);
+      }
+      pc=c; // ja zemame prethodnata
+     
+  }
+  printf("%d", vkupno);
+  
+
+  return 0;
+}
