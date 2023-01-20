@@ -1,0 +1,43 @@
+#include <stdio.h>
+int main(){
+    float matricaA[100][100],matricaB[100][100],zbirX=0,zbirY=0;
+    int n,i,j;
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%f",&matricaA[i][j]);
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            if(i>j){
+                zbirX+=matricaA[i][j];
+            }
+            if((i+j)>(n-1)){
+                zbirY+=matricaA[i][j];
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            if(i==j&&i+j==n-1){
+                matricaB[i][j]=zbirX+zbirY;
+            }
+            else if(i+j==n-1){
+                matricaB[i][j]=zbirY;
+            }
+            else if(i==j){
+                matricaB[i][j]=zbirX;
+            }
+            else {
+                matricaB[i][j] = 0;
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("%.1f ",matricaB[i][j]);
+        }
+        printf("\n");
+    }
+}
