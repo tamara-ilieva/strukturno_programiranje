@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int m, broj, prethoden_broj, broj_na_cifri, temp_broj, broj_na_cifri_prethoden, temp_prethoden_broj;
+    scanf("%d", &m);
+    int dolzhina=1;
+
+    scanf("&d", &prethoden_broj);
+    while(scanf("%d", &broj)){
+        broj_na_cifri = 0;
+        broj_na_cifri_prethoden = 0;
+        temp_broj = broj;
+        while(temp_broj>0){
+            temp_broj = temp_broj / 10;
+            broj_na_cifri++;
+        }
+        temp_prethoden_broj = prethoden_broj;
+        while(temp_prethoden_broj>0){
+            temp_prethoden_broj = temp_prethoden_broj / 10;
+            broj_na_cifri_prethoden++;
+        }
+        if ((broj > prethoden_broj) && (broj_na_cifri == m) && (broj_na_cifri_prethoden == m)){
+            dolzhina++;
+        }
+        else{
+            if (dolzhina > 1){
+                printf("%d ", dolzhina);
+            }
+            dolzhina = 1;
+        }
+
+        prethoden_broj = broj;
+    }
+
+    if (dolzhina > 1){
+        printf("%d ", dolzhina);
+    }
+
+}
