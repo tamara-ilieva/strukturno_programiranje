@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // broenje na cifri vo broj + prevrtuvanje na broj
+    int n, cifra;
+    scanf("%d", &n);
+    int nov_broj = 0;
+    int digits=0;
+    while(n>0){ // dodeka ima cifri vo brojot
+        cifra = n%10; // da ja zememe poslednata cifra
+        nov_broj = nov_broj * 10 + cifra; // pravime mesto za ushte edna cifra (so mnozhenje so 10), ja dodavame
+        n = n/10; // da se otstrani poslednata cifra
+        digits++; // brojach za cifri, kolku pati kje vrti while-ot, tolku cifri imame
+    }
+    printf("%d\n", nov_broj);
+    printf("%d", digits);
+
+
+}
