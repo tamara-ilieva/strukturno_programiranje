@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, i, perimetar, maksimalen_perimetar=0, reden_broj;
+    scanf("%d", &n); // vnesuvame cel broj n
+    int a, b, c;
+
+    for(i=1;i<=n;i++){ // vnesuvanje na n trojki koishto se otsechki
+        scanf("%d", &a);
+        scanf("%d", &b);
+        scanf("%d", &c);
+        if ((a+b>c) && (a+c>b) && (b+c>a)){
+            printf("Moze");
+            perimetar = a + b + c;
+            if (perimetar >= maksimalen_perimetar){
+                maksimalen_perimetar = perimetar;
+                reden_broj = i;
+            }
+        }
+        else{
+            printf("Ne moze");
+        }
+    }
+    printf("Najgolem perimetar: %d, reden broj %d", maksimalen_perimetar, reden_broj);
+}
