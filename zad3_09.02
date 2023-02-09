@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // broenje na cifri vo broj
+    int n, cifra;
+    scanf("%d", &n);
+
+    int digits=0;
+    while(n>0){ // dodeka ima cifri vo brojot
+        cifra = n%10; // da ja zememe poslednata cifra
+        n = n/10; // da se otstrani poslednata cifra
+        digits++; // brojach za cifri, kolku pati kje vrti while-ot, tolku cifri imame
+    }
+
+    printf("%d", digits);
+
+
+}
