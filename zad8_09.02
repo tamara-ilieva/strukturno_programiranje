@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, temp_n, reverse_n, cifra, blag_pronajden=0, br_cifri ,temp_i, m, i, uslov_blag;
+    scanf("%d", &m);
+    scanf("%d", &n);
+    for(i=m;i<=n;i++){
+        temp_i = i;
+        uslov_blag = 1;
+        while(temp_i>0){
+            cifra = temp_i%10;
+            if (cifra%2!=0){
+                uslov_blag = 0;
+                break;
+            }
+            temp_i /= 10;
+        }
+        if (uslov_blag == 1){
+            printf("%d", i);
+            blag_pronajden = 1;
+            break;
+        }
+    }
+    if (blag_pronajden == 0){
+        printf("Ne postoi takov broj");
+    }
+}
