@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int deneshen_datum, d_godina, d_mesec, d_den, n, i, datum, godina, mesec, den;
+    scanf("%d", &deneshen_datum);
+
+    d_godina = deneshen_datum % 10000;
+    deneshen_datum = deneshen_datum / 10000;
+    d_mesec = deneshen_datum % 100;
+    d_den = deneshen_datum / 100;
+
+    scanf("%d", &n);
+    for(i=0;i<n;i++){
+        scanf("%d", &datum);
+        godina = datum % 10000;
+        datum = datum / 10000;
+        mesec = datum % 100;
+        den = datum / 100;
+        if (d_godina - godina > 18){
+            printf("DA \n");
+        }
+        else if (d_godina - godina < 18){
+            printf("NE \n");
+
+        } else{
+            // ovaa godina polni 18
+            if (d_mesec > mesec){
+                 printf("DA \n");
+            } else if (d_mesec < mesec){
+                 printf("NE \n");
+            }
+            else{
+                if (d_den >= den){
+                    printf("DA \n");
+                }
+                else{
+                    printf("NE \n");
+                }
+
+            }
+        }
+    }
+
+}
