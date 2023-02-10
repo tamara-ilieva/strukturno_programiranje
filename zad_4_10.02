@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dali_e_prost(int broj){
+    int temp_broj, deliteli=0;
+    temp_broj = broj-1;
+    while(temp_broj > 1){
+        if (broj % temp_broj == 0){
+            deliteli++;
+        }
+        temp_broj--;
+    }
+    if (deliteli != 0){
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+
+int dali_e_prost_2(int broj){
+    int temp_broj;
+    temp_broj = broj-1;
+    while(temp_broj > 1){
+        if (broj % temp_broj == 0){
+            return 0;
+        }
+        temp_broj--;
+    }
+    return 1;
+
+}
+
+int zbir_na_cifri(int broj){
+    int zbir = 0, cifra;
+    while(broj>0){
+        cifra = broj%10;
+        zbir+=cifra;
+        broj/=10;
+    }
+    return zbir;
+}
+
+int main(){
+    int n = 10000;
+    int n_prost, zbir_prost, zbir_cifri_n, brojac=0;
+    while(n>=1){
+        n_prost = dali_e_prost(n);
+        zbir_cifri_n = zbir_na_cifri(n);
+        zbir_prost = dali_e_prost(zbir_cifri_n);
+
+        if(n_prost==1 && zbir_prost==1){
+            brojac++;
+            printf("%d\n", n);
+        }
+
+        n--;
+    }
+    printf("%d", brojac);
+
+
+}
