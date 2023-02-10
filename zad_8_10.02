@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int zbir_cifri_rekurzija(int broj, int zbir){
+    if (broj==0){
+        return zbir;
+    }else{
+        zbir_cifri_rekurzija(broj/10, zbir+=broj%10);
+    }
+}
+
+int main(){
+
+    int n, pogolem_broj;
+    scanf("%d", &n);
+    int rez = zbir_cifri_rekurzija(n, 0);
+    printf("%d", rez);
+
+}
