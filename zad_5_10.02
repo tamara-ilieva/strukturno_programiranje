@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dali_e_prost(int broj){
+    int temp_broj, deliteli=0;
+    temp_broj = broj-1;
+    while(temp_broj > 1){
+        if (broj % temp_broj == 0){
+            deliteli++;
+        }
+        temp_broj--;
+    }
+    if (deliteli != 0){
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+
+
+int main(){
+
+    int i, vtor_broj, counter=0, prost_i, prost_vtor;
+    for(i=1;i<=1000;i++){
+        vtor_broj = i+2;
+        prost_i = dali_e_prost(i);
+        prost_vtor = dali_e_prost(vtor_broj);
+        if (prost_i==1 && prost_vtor==1){
+            counter++;
+        }
+    }
+    printf("%d", counter);
+
+}
