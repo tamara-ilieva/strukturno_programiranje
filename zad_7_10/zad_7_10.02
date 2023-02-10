@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dali_e_prost_rekurzija(int broj, int vtor_broj){
+    if (vtor_broj == 1){
+        return 1; // sigurno e prost broj, ako do sega nema najdeno delitel
+    }
+    else{
+        if (broj%vtor_broj == 0){
+            return 0; // brojot ne e prost, ima najdeno delitel
+        }else {
+            return dali_e_prost_rekurzija(broj, vtor_broj-1);
+        }
+    }
+}
+
+int main(){
+
+    int n, pogolem_broj;
+    scanf("%d", &n);
+    int temp_n = n, rez;
+    while(1){
+        temp_n++;
+        pogolem_broj = temp_n;
+        rez = dali_e_prost_rekurzija(pogolem_broj, pogolem_broj-1);
+        if (rez==1){
+            printf("%d - %d = %d", pogolem_broj, n, pogolem_broj-n);
+            break;
+        }
+    }
+
+}
