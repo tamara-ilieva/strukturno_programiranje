@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dali_se_deli(int broj){
+    int prva_polovina, vtora_polovina, zbir, zbir_prva, zbir_vtora;
+    prva_polovina = broj / 100;
+    vtora_polovina = broj % 100;
+    zbir = prva_polovina + vtora_polovina;
+    if (broj % zbir == 0){
+        return 1;
+    } else {
+        return 0;
+    }
+
+}
+
+int main(){
+    int i, rez, counter=0;
+    for(i=1000;i<=9999;i++){
+        rez = dali_se_deli(i);
+        if (rez == 1){
+            printf("%d\n", i);
+            counter++;
+        }
+    }
+
+    printf("%d\n", counter);
+
+
+}
