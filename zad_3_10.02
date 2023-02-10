@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dali_e_prost(int broj){
+    int temp_broj, deliteli=0;
+    temp_broj = broj-1;
+    while(temp_broj > 1){
+        if (broj % temp_broj == 0){
+            deliteli++;
+        }
+        temp_broj--;
+    }
+    if (deliteli != 0){
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+
+int dali_e_prost_2(int broj){
+    int temp_broj;
+    temp_broj = broj-1;
+    while(temp_broj > 1){
+        if (broj % temp_broj == 0){
+            return 0;
+        }
+        temp_broj--;
+    }
+    return 1;
+
+}
+
+int main(){
+   int n, original_n, m;
+   scanf("%d", &n);
+   original_n = n;
+   while(1){
+        n++;
+        m = dali_e_prost_2(n);
+        if (m==1){
+            printf("%d - %d = %d", n, original_n, n-original_n);
+            break;
+        }
+   }
+
+
+}
