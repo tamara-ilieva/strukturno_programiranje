@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int zbir_na_k_broevi(int k){
+    int zbir=0, i;
+    for(i=1;i<=k;i++){
+        zbir+=i;
+    }
+    return zbir;
+}
+int faktoriel_od_k(int k){
+    int proizvod=1, i;
+    for(i=1;i<=k;i++){
+        proizvod*=i;
+    }
+    return proizvod;
+}
+int zbir_na_k_broevi_rek(int k){
+    if (k==1){
+        return 1;
+    }else{
+        return k + zbir_na_k_broevi_rek(k-1);
+    }
+}
+
+int faktoriel_od_k_rek(int k){
+    if (k==1){
+        return 1;
+    } else {
+        return k * faktoriel_od_k_rek(k-1);
+    }
+}
+
+int main(){
+
+    int n, faktoriel;
+    scanf("%d", &n);
+    int temp_n = n;
+    int zbir_k, zbir=0;
+    while(temp_n >= 1){
+        zbir_k = zbir_na_k_broevi_rek(temp_n);
+        faktoriel = faktoriel_od_k_rek(zbir_k);
+        zbir += faktoriel;
+        temp_n--;
+    }
+    printf("%d", zbir);
+
+}
