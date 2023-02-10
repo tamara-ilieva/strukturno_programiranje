@@ -27,6 +27,7 @@ int main(){
         prost_i = dali_e_prost(i);
         prost_vtor = dali_e_prost(vtor_broj);
         if (prost_i==1 && prost_vtor==1){
+            printf("%d %d \n", i, vtor_broj);
             counter++;
         }
     }
