@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    int i, j, n;
+    scanf("%d", &n);
+    int mat[n][n];
+
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    int simetrichna=1;
+
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+                if(mat[i][j] != mat[j][i]){
+                    simetrichna = 0;
+                }
+        }
+    }
+
+    if (simetrichna==1){
+        printf("matricata e simetrichna");
+    }else{
+        printf("matricata ne e simetrichna");
+    }
+
+}
