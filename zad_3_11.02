@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    int n, i;
+    scanf("%d", &n);
+    int niza[n];
+    for(i=0;i<n;i++){
+        scanf("%d", &niza[i]);
+    }
+
+    int rast=1, opag=1;
+
+    for(i=0; i<n-1; i++){
+
+        if(niza[i] > niza[i+1]){
+            rast=0;
+            //ne e rastechka
+            break;
+        }
+    }
+
+    for(i=0;i<n-1;i++){
+        if(niza[i] < niza[i+1]){
+            opag=0;
+            break;
+        }
+    }
+
+    if(rast==1){
+        printf("Nizata e rastechka\n");
+    }
+    else if (opag==1){
+        printf("Nizata e opagjachka\n");
+    } else {
+        printf("Ne e nitu rastechka nitu opagjachka");
+    }
+
+}
