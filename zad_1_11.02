@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+
+    int gol1, gol2, i;
+    scanf("%d", &gol1);
+    scanf("%d", &gol2);
+    int n1[gol1];
+    int n2[gol2];
+    for(i=0;i<gol1;i++){
+        scanf("%d", &n1[i]);
+    }
+    for(i=0;i<gol2;i++){
+        scanf("%d", &n2[i]);
+    }
+    int ne_se_isti=0;
+    if(gol1 != gol2){
+        printf("Nizite ne se ednakvi\n");
+    }else{
+        for(i=0;i<gol1;i++){
+            if(n1[i] != n2[i]){
+                printf("Nizite ne se ednakvi\n");
+                ne_se_isti=1;
+                break;
+            }
+        }
+
+        if(ne_se_isti == 0){
+            printf("Nizite se ednakvi");
+        }
+
+
+    }
+
+}
