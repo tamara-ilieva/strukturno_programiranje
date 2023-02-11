@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+
+   int n, i;
+   scanf("%d", &n);
+   int niza[n];
+   for(i=0;i<n;i++){
+    scanf("%d", &niza[i]);
+   }
+
+   int zbir_parni=0, zbir_neparni=0, brojac_parni=0, brojac_neparni=0;
+
+   for(i=0;i<n;i++){
+    if(niza[i] % 2 ==0){
+        zbir_parni += niza[i];
+        brojac_parni++;
+    }
+    else{
+        zbir_neparni+=niza[i];
+        brojac_neparni++;
+    }
+   }
+   printf("Zbir parni: %d, zbir neparni: %d, odnos: %.2f", zbir_parni, zbir_neparni, (float)brojac_parni/(float)brojac_neparni);
+
+}
