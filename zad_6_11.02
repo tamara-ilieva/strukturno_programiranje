@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    int n, i, j;
+    scanf("%d", &n);
+    int niza[n];
+    for(i=0;i<n;i++){
+        scanf("%d", &niza[i]);
+    }
+    int duplikati=0;
+    for(i=0;i<n-1;i++){
+        for(j=i+1;j<n;j++){
+            if(niza[i]==niza[j]){
+                duplikati++;
+                break;
+            }
+        }
+
+    }
+    int k=1;
+    int niza2[n-duplikati];
+    niza2[0] = niza[0];
+    int n2 = n-duplikati;
+    for(i=1;i<n;i++){
+        int dup=0;
+        for(j=0;j<k;j++){
+            if (niza[i] == niza2[j]){
+                dup=1;
+            }
+        }
+        if (dup==0){
+            niza2[k] = niza[i];
+            k++;
+        }
+
+    }
+    for(i=0;i<n2;i++){
+        printf("%d ", niza2[i]);
+    }
+
+    printf("\nBroj na duplikati: %d ", duplikati);
+}
