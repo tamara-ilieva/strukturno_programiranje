@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    int n, i, j;
+    scanf("%d", &n);
+    int mat[n][n];
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    int mat_zdiplena[2][2] = {
+    {0, 0},
+    {0, 0}};
+
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            if((i==0 && (j==0 || j==3)) || (i==3 && (j==0 || j==3))){
+                mat_zdiplena[0][0] += mat[i][j];
+            }
+            else if (i==0 || i==3){
+                mat_zdiplena[0][1] += mat[i][j];
+            }
+            else if (j==0 || j==3){
+                mat_zdiplena[1][0] += mat[i][j];
+            }else{
+                mat_zdiplena[1][1] += mat[i][j];
+            }
+        }
+    }
+
+    for(i=0;i<2;i++){
+        for(j=0;j<2;j++){
+            printf("%d ", mat_zdiplena[i][j]);
+        }
+        printf("\n");
+    }
+
+}
