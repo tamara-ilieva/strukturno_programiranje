@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    int n, i, j;
+    scanf("%d", &n);
+    int niza[n];
+    for(i=0;i<n;i++){
+        scanf("%d", &niza[i]);
+    }
+    int m;
+    scanf("%d", &m);
+
+    for(j=0; j<m; j++){
+        int temp = niza[n-1];
+        for(i=n;i>=1;i--){
+            niza[i] = niza[i-1];
+        }
+
+        niza[0] = temp;
+    }
+    for(i=0;i<n;i++){
+        printf("%d ", niza[i]);
+    }
+
+}
