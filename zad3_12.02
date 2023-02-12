@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dali_e_samoglaska(char c){
+    c = tolower(c);
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+        return 1;
+    }
+    return 0;
+}
+
+int is_bukva(char c){
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
+        return 1;
+    }
+    return 0;
+
+}
+
+int main(){
+    FILE *vlezna, *izlezna;
+
+    if((vlezna=fopen("text.txt", "r")) == NULL){
+        printf("Dat vlezna ne mozhe da se otvori\n");
+        return -1;
+    }
+    int br_red=0, vkupno_samoglaski=0, samoglaski_vo_red=0;
+
+    char c;
+
+    while((c = getc(vlezna)) != EOF){
+        // c
+        if (is_bukva(c) == 1){
+            if (dali_e_samoglaska(c) == 1){
+                vkupno_samoglaski++;
+                samoglaski_vo_red++;
+            }
+        } else {
+            if (c == '\n'){
+                if (samoglaski_vo_red > 10){
+                    br_red++;
+                }
+                samoglaski_vo_red = 0;
+            }
+        }
+    }
+    if (samoglaski_vo_red > 10){
+            br_red++;
+    }
+    printf("Vkupno redovi so poveke od 10: %d, \n Vkupno samoglaski: %d", br_red, vkupno_samoglaski);
+
+    return 0;
+}
