@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    FILE *dat;
+
+    if((dat=fopen("text.txt", "r")) == NULL){
+        printf("Dat ne mozhe da se otvori\n");
+        return -1;
+    }
+
+    char c;
+    char temp_c;
+    int soglaski=0, samoglaski=0;
+    while((c = fgetc(dat)) != EOF){
+        //printf("%c\n", c);
+        if ((c >= 'a' && c<='z') || (c >= 'A' && c <='Z')){
+            temp_c = tolower(c);
+            if (temp_c == 'a' || temp_c == 'o' || temp_c == 'u' || temp_c == 'i' || temp_c == 'e'){
+                samoglaski++;
+            }else{
+                soglaski++;
+            }
+        }
+    }
+    printf("%d %d %.2f", soglaski, samoglaski, (float)samoglaski/(float)soglaski);
+
+    return 0;
+}
