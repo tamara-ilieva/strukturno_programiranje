@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+    FILE *vlezna, *izlezna;
+
+    if((vlezna=fopen("text.txt", "r")) == NULL){
+        printf("Dat vlezna ne mozhe da se otvori\n");
+        return -1;
+    }
+
+
+    if((izlezna=fopen("out.txt", "w")) == NULL){
+        printf("Dat izlezna ne mozhe da se otvori\n");
+        return -1;
+    }
+
+    char linija[81];
+    int br_kar;
+    while(fgets(linija, 81, vlezna) != NULL){
+        br_kar = strlen(linija);
+        fprintf(izlezna, "%d\n%s", br_kar, linija);
+    }
+
+    return 0;
+}
