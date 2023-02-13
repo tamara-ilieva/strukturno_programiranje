@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int poramni_broj(int broj){
+/*int poramni_broj(int broj){
     int cifra, nov_broj=0;
     while(broj>0){
         cifra = broj%10;
@@ -19,6 +19,20 @@ int poramni_broj(int broj){
         nov_broj = nov_broj*10 + cifra;
     }
     return nov_broj;
+}*/
+int poramni_rekurzija(int broj, int nov_broj){
+    int cifra;
+
+    if (broj==0){
+        return 0;
+    }
+    nov_broj = poramni_rekurzija(broj/10, nov_broj);
+    cifra = broj%10;
+    if (cifra==9){
+        cifra=7;
+    }
+    nov_broj =  nov_broj*10 + cifra;
+    return nov_broj;
 }
 
 int main()
@@ -28,19 +42,20 @@ int main()
     int niza[100];
 
     while(scanf("%d", &n)){
-        nov_broj = poramni_broj(n);
+        //nov_broj = poramni_broj(n);
+        nov_broj = poramni_rekurzija(n, 0);
         niza[counter] = nov_broj;
         counter++;
         //printf("%d %d\n", n, nov_broj);
     }
 
-    int i, k=counter-1, j, temp;
-    for(i=0;i<counter-1;i++){
-        for(j=0;j<counter-i;j++){
-            if(niza[i] > niza[i+1]){
-                temp=niza[i];
-                niza[i] = niza[i+1];
-                niza[i+1] = temp;
+    int i, j, temp;
+    for(i=0;i<counter;i++){
+        for(j=0;j<counter-i-1;j++){
+            if(niza[j] > niza[j+1]){
+                temp=niza[j];
+                niza[j] = niza[j+1];
+                niza[j+1] = temp;
             }
         }
         //k--;
