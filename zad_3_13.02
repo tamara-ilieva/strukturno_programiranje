@@ -66,7 +66,7 @@ int main()
         kraj = counter;
     }
 
-    for(i=0;i<counter;i++){
+    for(i=0;i<kraj;i++){
         printf("%d ", niza[i]);
     }
 }
