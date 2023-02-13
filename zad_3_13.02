@@ -61,6 +61,11 @@ int main()
         //k--;
     }
 
+    int kraj = 5;
+    if (counter<5){
+        kraj = counter;
+    }
+
     for(i=0;i<counter;i++){
         printf("%d ", niza[i]);
     }
